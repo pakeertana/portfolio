@@ -1,20 +1,187 @@
+:root {
+  --bg-color: #f9f9fc;
+  --text-color: #333;
+  --header-bg: #ffffff;
+  --footer-bg: #eeeeee;
+  --button-bg: #0078d7;
+  --button-hover: #005fa3;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #fafafa;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 20px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-/* Section Styling */
-.section-box {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.section-box h2 {
+header {
+  background: var(--header-bg);
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  padding: 40px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.profile-pic {
+  width: 140px;
+  border-radius: 50%;
+  border: 4px solid #ddd;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  margin: 10px 0 4px;
+}
+
+header p {
+  color: #666;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 6px;
+  border-radius: 25px;
+  background: var(--button-bg);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.section-box {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+/* Skills */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skill-btn {
+  background: var(--button-bg);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+  user-select: none;
+}
+
+.skill-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.project-card {
+  background: #f1f3f6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Animations */
+.animated {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.fade-in { animation-name: fadeIn; }
+.slide-up { animation-name: slideUp; }
+.scale-in { animation-name: scaleIn; }
+.zoom-in { animation-name: zoomIn; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.delay-0 { animation-delay: 0.2s; }
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.8s; }
+.delay-4 { animation-delay: 1.0s; }
+.delay-5 { animation-delay: 1.2s; }
+
+.small-btn {
+  font-size: 14px;
+  padding: 8px 16px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 /* Certifications */
@@ -22,7 +189,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
 }
 
 .cert-card {
@@ -33,8 +199,6 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: inherit;
-  text-decoration: none;
 }
 
 .cert-card:hover {
@@ -44,11 +208,7 @@ body {
 
 .cert-card h3 {
   margin-bottom: 8px;
-  color: #1a73e8;
-}
-
-.cert-card p {
-  color: #555;
+  color: var(--button-bg);
 }
 
 @media (max-width: 768px) {
